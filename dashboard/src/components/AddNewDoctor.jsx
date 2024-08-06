@@ -5,7 +5,7 @@ import { Context } from "../main";
 import axios from "axios";
 
 const AddNewDoctor = () => {
-  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const { isAuthenticated} = useContext(Context);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -64,7 +64,6 @@ const AddNewDoctor = () => {
         })
         .then((res) => {
           toast.success(res.data.message);
-          setIsAuthenticated(true);
           navigateTo("/");
           setFirstName("");
           setLastName("");

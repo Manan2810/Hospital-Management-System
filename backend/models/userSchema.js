@@ -20,10 +20,10 @@ const userSchema = new mongoose.Schema({
     validate: [validator.isEmail, "Provide A Valid Email!"],
   },
   phone: {
-    type: String,
+    type: Number,
     required: [true, "Phone Is Required!"],
-    minLength: [11, "Phone Number Must Contain Exact 11 Digits!"],
-    maxLength: [11, "Phone Number Must Contain Exact 11 Digits!"],
+    minLength: [10, "Phone Number Must Contain Exact 10 Digits!"],
+    maxLength: [10, "Phone Number Must Contain Exact 10 Digits!"],
   },
   nic: {
     type: String,
@@ -38,13 +38,13 @@ const userSchema = new mongoose.Schema({
   gender: {
     type: String,
     required: [true, "Gender Is Required!"],
-    enum: ["Male", "Female"],
+    enum: ["Male", "Female"],//only these values are accepted
   },
   password: {
     type: String,
     required: [true, "Password Is Required!"],
     minLength: [8, "Password Must Contain At Least 8 Characters!"],
-    select: false,
+    select: false, //that field will not be included in the results of queries unless you explicitly specify that you want to include it.
   },
   role: {
     type: String,
